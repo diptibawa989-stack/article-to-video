@@ -1,6 +1,6 @@
 # Sources for /weekly, one per line. Lines starting with # are ignored.
 # Any of these work:
-#   a Substack:        https://www.lennysnewsletter.com
+#   a Substack:        https://example.substack.com
 #   an RSS/Atom feed:  https://example.com/feed.xml
 #   a blog homepage:   https://example.com/blog   (the feed is found automatically if the page links to one)
 #
