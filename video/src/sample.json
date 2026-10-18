@@ -1,0 +1,39 @@
+{
+  "title": "Your Career Is a Portfolio, Not a Ladder",
+  "author": "Sample Writer",
+  "publication": "Sample Newsletter",
+  "url": "https://example.substack.com/p/career-portfolio",
+  "readMinutes": 11,
+  "topics": ["non-linear careers", "AI", "startups"],
+  "whyPicked": "it reframes career switches as compounding, not starting over",
+  "hook": "Why do the people with the messiest CVs keep landing the most interesting roles?",
+  "thesis": "Careers now reward a portfolio of rare skill combinations, not years spent climbing one ladder.",
+  "mapCenter": "Career as portfolio",
+  "ideas": [
+    {
+      "label": "Ladders broke",
+      "headline": "The ladder assumed nothing would change",
+      "body": "Promotion paths were built for stable industries. When roles shift every few years, seniority in one track loses value fast.",
+      "visual": {"type": "contrast", "left": {"label": "Ladder", "points": ["One track", "Seniority = value", "Switching resets you"]}, "right": {"label": "Portfolio", "points": ["Many bets", "Combos = value", "Switching compounds"]}}
+    },
+    {
+      "label": "Stack rare combos",
+      "headline": "Value comes from combinations",
+      "body": "Being top 25% in two or three areas that rarely overlap beats being top 1% in one crowded field.",
+      "visual": {"type": "flow", "steps": ["Pick a core skill", "Add an adjacent one", "Find where they overlap", "Own that niche"]}
+    },
+    {
+      "label": "AI raises the bar",
+      "headline": "AI makes single skills cheaper",
+      "body": "Tasks that live inside one skill get automated first. Judgement across domains is harder to copy.",
+      "visual": {"type": "stat", "value": "3x", "label": "more value placed on cross-domain judgement (illustrative)"}
+    },
+    {
+      "label": "Story is the glue",
+      "headline": "Your story connects the dots",
+      "body": "A non-linear path only reads as strength when you can explain the thread running through it.",
+      "visual": {"type": "cycle", "nodes": ["Try a role", "Learn the skill", "Tell the story", "Get the next bet"]}
+    }
+  ],
+  "takeaway": "Stop asking what the next rung is. Ask which new skill makes your existing ones rarer, then tell that story out loud."
+}

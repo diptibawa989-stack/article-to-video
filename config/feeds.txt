@@ -1,0 +1,8 @@
+# Sources for /weekly, one per line. Lines starting with # are ignored.
+# Any of these work:
+#   a Substack:        https://www.lennysnewsletter.com
+#   an RSS/Atom feed:  https://example.com/feed.xml
+#   a blog homepage:   https://example.com/blog   (the feed is found automatically if the page links to one)
+#
+# Tip: set "substackHandle" in config/settings.json to also include every
+# Substack your public profile subscribes to.

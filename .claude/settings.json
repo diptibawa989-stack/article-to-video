@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(node scripts/*)",
+      "Bash(open out/*)",
+      "Read(./**)",
+      "Edit(./storyboards/**)",
+      "Edit(./data/**)",
+      "Edit(./config/**)",
+      "Write(./storyboards/**)",
+      "Write(./data/**)"
+    ]
+  }
+}

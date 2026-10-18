@@ -1,0 +1,29 @@
+{
+  "name": "article-to-video",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Turn any article link into a short neon motion graphic that explains it. Built to run inside Claude Code.",
+  "license": "MIT",
+  "scripts": {
+    "studio": "remotion studio video/src/index.ts",
+    "get": "node scripts/get-article.mjs",
+    "render": "node scripts/render.mjs",
+    "weekly:fetch": "node scripts/fetch-week.mjs"
+  },
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "5.2.5",
+    "@fontsource/space-grotesk": "5.2.5",
+    "@mozilla/readability": "0.6.0",
+    "@remotion/cli": "4.0.528",
+    "linkedom": "0.18.12",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.528"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "typescript": "5.6.3"
+  },
+  "engines": {"node": ">=18"}
+}

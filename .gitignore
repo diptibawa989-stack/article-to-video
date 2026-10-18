@@ -1,0 +1,10 @@
+node_modules/
+out/*
+!out/.gitkeep
+articles/*
+!articles/.gitkeep
+data/*
+!data/.gitkeep
+storyboards/*
+!storyboards/_sample.json
+.DS_Store

@@ -1,0 +1,7 @@
+{
+  "topics": ["careers", "AI", "startups", "tech"],
+  "picksPerWeek": 3,
+  "lookbackDays": 7,
+  "minWords": 700,
+  "substackHandle": ""
+}
