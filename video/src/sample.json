@@ -4,7 +4,11 @@
   "publication": "Sample Newsletter",
   "url": "https://example.substack.com/p/career-portfolio",
   "readMinutes": 11,
-  "topics": ["non-linear careers", "AI", "startups"],
+  "topics": [
+    "non-linear careers",
+    "AI",
+    "startups"
+  ],
   "whyPicked": "it reframes career switches as compounding, not starting over",
   "hook": "Why do the people with the messiest CVs keep landing the most interesting roles?",
   "thesis": "Careers now reward a portfolio of rare skill combinations, not years spent climbing one ladder.",
@@ -14,26 +18,93 @@
       "label": "Ladders broke",
       "headline": "The ladder assumed nothing would change",
       "body": "Promotion paths were built for stable industries. When roles shift every few years, seniority in one track loses value fast.",
-      "visual": {"type": "contrast", "left": {"label": "Ladder", "points": ["One track", "Seniority = value", "Switching resets you"]}, "right": {"label": "Portfolio", "points": ["Many bets", "Combos = value", "Switching compounds"]}}
+      "visual": {
+        "type": "contrast",
+        "left": {
+          "label": "Ladder",
+          "points": [
+            "One track",
+            "Seniority = value",
+            "Switching resets you"
+          ]
+        },
+        "right": {
+          "label": "Portfolio",
+          "points": [
+            "Many bets",
+            "Combos = value",
+            "Switching compounds"
+          ]
+        }
+      },
+      "icon": "trending-up"
     },
     {
       "label": "Stack rare combos",
       "headline": "Value comes from combinations",
       "body": "Being top 25% in two or three areas that rarely overlap beats being top 1% in one crowded field.",
-      "visual": {"type": "flow", "steps": ["Pick a core skill", "Add an adjacent one", "Find where they overlap", "Own that niche"]}
+      "visual": {
+        "type": "flow",
+        "steps": [
+          "Pick a core skill",
+          "Add an adjacent one",
+          "Find where they overlap",
+          "Own that niche"
+        ]
+      },
+      "icon": "layers"
     },
     {
-      "label": "AI raises the bar",
-      "headline": "AI makes single skills cheaper",
-      "body": "Tasks that live inside one skill get automated first. Judgement across domains is harder to copy.",
-      "visual": {"type": "stat", "value": "3x", "label": "more value placed on cross-domain judgement (illustrative)"}
+      "label": "Deep and broad",
+      "headline": "The rare spot is deep and broad",
+      "body": "Most people grow along one axis. The valuable corner combines real depth with range.",
+      "icon": "grid-2x2",
+      "visual": {
+        "type": "matrix",
+        "xAxis": [
+          "Narrow",
+          "Broad"
+        ],
+        "yAxis": [
+          "Shallow",
+          "Deep"
+        ],
+        "quadrants": [
+          "Specialist",
+          "Rare generalist",
+          "Beginner",
+          "Dabbler"
+        ],
+        "highlight": 1
+      }
     },
     {
       "label": "Story is the glue",
       "headline": "Your story connects the dots",
       "body": "A non-linear path only reads as strength when you can explain the thread running through it.",
-      "visual": {"type": "cycle", "nodes": ["Try a role", "Learn the skill", "Tell the story", "Get the next bet"]}
+      "visual": {
+        "type": "cycle",
+        "nodes": [
+          "Try a role",
+          "Learn the skill",
+          "Tell the story",
+          "Get the next bet"
+        ]
+      },
+      "icon": "route"
     }
   ],
-  "takeaway": "Stop asking what the next rung is. Ask which new skill makes your existing ones rarer, then tell that story out loud."
+  "takeaway": "Stop asking what the next rung is. Ask which new skill makes your existing ones rarer, then tell that story out loud.",
+  "narration": {
+    "intro": "Here's a ninety second read of Your Career Is a Portfolio, Not a Ladder.",
+    "hook": "Why do people with messy CVs keep landing the most interesting roles?",
+    "thesis": "The author's answer: careers now reward rare combinations of skills, not years spent climbing one ladder.",
+    "idea0": "The ladder was built for a world that stayed still. When roles shift every few years, seniority in one track loses value fast. A portfolio of bets keeps compounding.",
+    "idea1": "So value comes from combinations. Pick a core skill, add one next to it, and own the place where they overlap.",
+    "idea2": "Picture two axes, depth and breadth. Most people grow along one. The rare and valuable corner is deep and broad at the same time.",
+    "idea3": "And your story is the glue. Try a role, learn the skill, tell the story, and that story wins you the next bet.",
+    "map": "Put together: ladders broke, combinations win, depth plus range is rare, and your story connects it all.",
+    "takeaway": "So stop asking what the next rung is. Ask which new skill makes your existing ones rarer, then say that story out loud.",
+    "outro": "Read the full piece for the details."
+  }
 }

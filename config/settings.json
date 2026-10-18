@@ -1,7 +1,17 @@
 {
-  "topics": ["careers", "AI", "startups", "tech"],
+  "topics": [
+    "careers",
+    "AI",
+    "startups",
+    "tech"
+  ],
   "picksPerWeek": 3,
   "lookbackDays": 7,
   "minWords": 700,
-  "substackHandle": ""
+  "substackHandle": "",
+  "voice": {
+    "enabled": true,
+    "voiceId": "21m00Tcm4TlvDq8ikWAM",
+    "modelId": "eleven_multilingual_v2"
+  }
 }

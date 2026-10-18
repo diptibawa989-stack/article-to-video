@@ -3,6 +3,7 @@ import {interpolate, useCurrentFrame} from 'remotion';
 import {Scene} from '../components/Scene';
 import {Kicker, Line, Neon, Words} from '../components/Text';
 import {VisualBlock} from '../components/Visuals';
+import {NeonIcon} from '../components/Icon';
 import {ACCENTS, C, MONO, SANS, fit, glow, svgGlow} from '../theme';
 import type {Idea, Storyboard} from '../types';
 
@@ -66,14 +67,27 @@ export const IdeaScene: React.FC<{idea: Idea; i: number; n: number; dur: number}
   return (
     <Scene dur={dur}>
       <div style={{display: 'flex', flexDirection: 'column', gap: 30}}>
-        <Kicker text={`IDEA ${String(i + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`} color={color} />
+        <div style={{display: 'flex', alignItems: 'center', gap: 22}}>
+          {idea.icon && <IconPop name={idea.icon} color={color} />}
+          <Kicker text={`IDEA ${String(i + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`} color={color} />
+        </div>
         <Neon text={idea.headline} color={color} size={fit(idea.headline, 82, 54, 40)} delay={4} />
       </div>
       <div style={{flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '30px 0'}}>
-        <VisualBlock v={idea.visual} color={color} delay={visualDelay} />
+        <VisualBlock v={idea.visual} color={color} delay={visualDelay} dur={dur} />
       </div>
       <Words text={idea.body} size={fit(idea.body, 42, 32, 120)} delay={bodyDelay} perWord={1.6} />
     </Scene>
+  );
+};
+
+const IconPop: React.FC<{name: string; color: string}> = ({name, color}) => {
+  const f = useCurrentFrame();
+  const s = interpolate(f, [2, 12], [0, 1], clamp);
+  return (
+    <div style={{width: 76, height: 76, borderRadius: 20, border: `3px solid ${color}`, boxShadow: glow(color, 0.6), display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: s, transform: `scale(${0.6 + 0.4 * s}) rotate(${(1 - s) * -20}deg)`}}>
+      <NeonIcon name={name} color={color} size={46} />
+    </div>
   );
 };
 
@@ -109,7 +123,10 @@ export const MapScene: React.FC<{sb: Storyboard; dur: number}> = ({sb, dur}) => 
             const o = interpolate(f, [30 + i * 8, 40 + i * 8], [0, 1], clamp);
             return (
               <div key={i} style={{position: 'absolute', left: cx + RX * Math.cos(ang), top: cy + RY * Math.sin(ang), transform: 'translate(-50%,-50%)', opacity: o, width: 'max-content', background: C.bg, border: `3px solid ${c}`, boxShadow: glow(c, 0.6), borderRadius: 20, padding: '14px 22px', maxWidth: 280, textAlign: 'center'}}>
-                <div style={{fontFamily: MONO, fontSize: 22, color: c, marginBottom: 6}}>{String(i + 1).padStart(2, '0')}</div>
+                <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, fontFamily: MONO, fontSize: 22, color: c, marginBottom: 6}}>
+                  {idea.icon && <NeonIcon name={idea.icon} color={c} size={30} strokeWidth={2} />}
+                  <span>{String(i + 1).padStart(2, '0')}</span>
+                </div>
                 <div style={{fontFamily: SANS, fontWeight: 600, fontSize: fit(idea.label, 34, 26, 16), color: C.text, lineHeight: 1.15}}>{idea.label}</div>
               </div>
             );

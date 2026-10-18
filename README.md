@@ -1,6 +1,6 @@
 # Article to Video
 
-Paste any article link. Get back a 90-second neon motion graphic that explains the whole piece: the question it answers, the main argument, each key idea as an animated diagram, and a one-screen map of how it all fits together.
+Paste any article link. Get back a 90-second neon motion graphic that explains the whole piece: the question it answers, the main argument, each key idea as an animated diagram, and a one-screen map of how it all fits together. Add an ElevenLabs key and it's narrated too.
 
 It runs inside **Claude Code**, which reads the article, works out the argument, writes the storyboard, checks its own work and renders the video on your computer.
 
@@ -68,10 +68,12 @@ Type `/video` followed by any article link:
 What happens next:
 1. On the first run it installs the video tools (a few minutes, once only).
 2. It saves the article text and reads the whole thing.
-3. It writes a storyboard: the question, the main argument, 3 to 6 key ideas and a takeaway.
-4. It checks every point against the article, so nothing gets made up.
-5. It renders preview frames, looks at them, and fixes any text that doesn't fit.
-6. It renders the video and opens it.
+3. It writes a storyboard: the question, the main argument, 3 to 6 key ideas, a takeaway and a narration script.
+4. For each idea it picks the diagram that fits (timeline, funnel, 2×2 matrix, iceberg, Venn, spectrum, flow, before vs after, bar chart and more) plus an icon.
+5. It checks every point against the article, so nothing gets made up.
+6. If you've added an ElevenLabs key (Step 5), it records the voiceover.
+7. It renders preview frames, looks at them, and fixes any text that doesn't fit.
+8. It renders the video and opens it.
 
 Allow about 3 to 8 minutes per video, depending on your computer. Videos are saved in the `out` folder.
 
@@ -96,6 +98,26 @@ To run it automatically, set up a scheduled task in the Claude desktop app (week
 
 ---
 
+## Step 5 (optional): Add a voiceover with ElevenLabs
+
+Without this step, videos have no sound. With it, a narrator explains each scene and every scene is timed to the voice.
+
+1. Make an account at [elevenlabs.io](https://elevenlabs.io). They have a free plan with a monthly character allowance, and each video uses about 1,000 to 1,500 characters. Check their pricing page for current limits.
+2. In your ElevenLabs account, find **API Keys** and create a key. Copy it.
+3. Save the key in a file called `.env` in the project folder. Easiest way: open a new Terminal window, run these two lines, putting your real key in place of `your_key_here`:
+   ```
+   cd ~/article-to-video
+   echo 'ELEVENLABS_API_KEY=your_key_here' > .env
+   ```
+   Do this in Terminal rather than pasting the key into a chat.
+4. Make a video as usual. It now has narration.
+
+To change the voice: in ElevenLabs open **Voices**, pick one, copy its **Voice ID**, and paste it into `voiceId` in `config/settings.json`. To switch narration off, set `"enabled": false` there.
+
+Your `.env` file stays on your computer. It's listed in `.gitignore`, so it won't be uploaded if you push the project to GitHub. Never paste your key anywhere public.
+
+---
+
 ## Make it yours
 
 Just ask Claude Code in plain English, for example:
@@ -103,6 +125,7 @@ Just ask Claude Code in plain English, for example:
 - "Change the colours to orange and teal"
 - "Make each idea stay on screen longer"
 - "Add my logo to the last scene"
+- "Use a deeper, slower voice"
 
 To preview the template live in your browser, run `npm run studio`.
 
@@ -117,6 +140,9 @@ To preview the template live in your browser, run `npm run studio`.
 | "Could not extract text" | Some sites block downloads or load text with JavaScript. Copy the article text into a file, for example `article.txt` in this folder, then ask: `make a video from article.txt, the link is <url>`. |
 | "Paywalled" | Only free articles are supported, unless you paste in text you have access to. |
 | A video looks cramped | Ask Claude to "shorten the text on idea 3 and re-render". |
+| "No ElevenLabs key found" | That's fine: the video renders silent. Add a key to get narration (Step 5). |
+| ElevenLabs error 401 | The key in `.env` is wrong or expired. Create a new one and paste it again. |
+| ElevenLabs error 429 or quota | You've hit your plan's character limit. Wait for the monthly reset or upgrade. |
 
 ---
 
@@ -125,12 +151,13 @@ To preview the template live in your browser, run `npm run studio`.
 ```
 article link
    → scripts/get-article.mjs     saves clean article text
-   → Claude reads it             writes storyboards/<slug>.json (question, argument, ideas, takeaway)
+   → Claude reads it             writes storyboards/<slug>.json (question, argument, ideas, diagrams, icons, narration)
+   → scripts/voice.mjs           optional: ElevenLabs voices each scene, scenes stretch to fit
    → scripts/render.mjs          checks text limits, renders preview frames, Claude reviews them
    → Remotion                    renders out/<slug>.mp4
 ```
 
-The rules Claude follows (how to find the real argument, which diagram suits which kind of idea, the faithfulness check) live in `CLAUDE.md`. The video template is plain React, built with [Remotion](https://www.remotion.dev), in `video/src/`.
+The rules Claude follows (how to find the real argument, which diagram suits which kind of idea, the faithfulness check) live in `CLAUDE.md`. The video template is plain React, built with [Remotion](https://www.remotion.dev), in `video/src/`. Icons come from [Lucide](https://lucide.dev).
 
 Remotion is free for individuals, non-profits and companies with up to 3 employees. Bigger companies need a Remotion company license: see [remotion.dev/license](https://www.remotion.dev/license).
 

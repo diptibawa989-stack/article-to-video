@@ -8,3 +8,6 @@ data/*
 storyboards/*
 !storyboards/_sample.json
 .DS_Store
+.env
+public/voice/
+storyboards/*.voice.json
